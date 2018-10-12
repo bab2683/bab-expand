@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+	<title>Stencil Component Starter</title>
+	
+	<script src="/build/bab-expand.js"></script>
+	<style>
+		
+		.wrapper {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 1rem;
+		}
+		.cube{
+			width: 150px;
+			height: 150px;
+			border: 3px solid black;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="wrapper">
+		<bab-expand classes="cube" event="click">blabla</bab-expand>
+		<div class="cube">test cube</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+.bab-expand {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+
+	&.bab-expand__vertical--top {
+		align-items: flex-start;
+	}
+	&.bab-expand__vertical--center {
+		align-items: center;
+	}
+	&.bab-expand__vertical--bottom {
+		align-items: flex-end;
+	}
+	&.bab-expand__horizontal--left {
+		text-align: left;
+		justify-content: flex-start;
+	}
+	&.bab-expand__horizontal--center {
+		text-align: center;
+		justify-content: center;
+	}
+	&.bab-expand__horizontal--right {
+		text-align: right;
+		justify-content: flex-end;
+	}
+
+	&.bab-expand__fixed {
+		position: fixed;
+	}
+	&.bab-expand__coordinates {
+		z-index: 1;
+		top: 3% !important;
+		left: 3% !important;
+		width: 94% !important;
+		height: 94% !important;
+	}
+	.bab-expand__close {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		background-color: transparent;
+		border: 0;
+		font-size: 20px;
+		animation-name: example;
+		animation-duration: 4s;
+		display: none;
+		cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+		&.show {
+			display: block;
+		}
+	}
+	.bab-expand__content {
+	}
+}
+@keyframes example {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
