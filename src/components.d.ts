@@ -14,6 +14,7 @@ export namespace Components {
 
   interface BabExpand {
     'classes': string;
+    'closeButton': boolean;
     'duration': number;
     'event': string;
     'expand': () => void;
@@ -23,6 +24,7 @@ export namespace Components {
   }
   interface BabExpandAttributes extends StencilHTMLAttributes {
     'classes'?: string;
+    'closeButton'?: boolean;
     'duration'?: number;
     'event'?: string;
     'horizontalAlign'?: string;

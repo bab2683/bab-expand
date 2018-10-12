@@ -9,7 +9,7 @@ export class BabExpand {
 	
 	private initialStats:any;
 	private mainElement:HTMLElement;
-	private closeButton:HTMLElement;
+	private closeButtonElement:HTMLElement;
 	private verticalClass:string;
 	private horizontalClass:string;
 	
@@ -18,6 +18,7 @@ export class BabExpand {
 	@Prop() duration:number = 600;
 	@Prop() verticalAlign:string = "center";
 	@Prop() horizontalAlign:string = "center";
+	@Prop() closeButton:boolean = true;
 	
 	@State() isOpen:boolean = false;
 	@State() showCloseButton:boolean = false;	
@@ -59,11 +60,11 @@ export class BabExpand {
 		
 
 		this.mainElement = this.container.querySelector(".bab-expand");
-		this.closeButton = this.container.querySelector(".bab-expand__close");
+		this.closeButtonElement = this.container.querySelector(".bab-expand__close");
 		
 		if(this.event){
 			this.container.addEventListener(this.event, (e)=>{
-				if(e.target !== this.closeButton && !this.isOpen){
+				if(e.target !== this.closeButtonElement && !this.isOpen){
 					this.expand();
 				}
 			});
@@ -113,10 +114,10 @@ export class BabExpand {
 	render() {
 		return (
 			<div class={"bab-expand "+this.classes+" "+ this.verticalClass +" "+this.horizontalClass}>
-				<button class={'bab-expand__close ' + (this.showCloseButton ? 'show' : '')} onClick={()=> this.shrink()}>&#x2716;</button>
-				<div class="bab-expand__content">
-					<slot />
-				</div>
+				<slot />
+				{this.closeButton ? 
+					<button class={'bab-expand__close ' + (this.showCloseButton ? 'show' : '')} onClick={()=> this.shrink()}>&#x2716;</button> : null}
+				
 			</div>
 			);
 		}		
